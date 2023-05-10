@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Banking Account System</title>
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ysabeau&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.ts" defer></script>
+
+        <script>
+                module.exports = {
+                        theme: {
+                                extend: {
+                                        rotate: {
+                                                '360': '360deg',
+                                        },
+
+                                        width: {
+                                                '900': '900px',
+                                                '300': '32rem'
+                                        }
+
+                                }
+                        }
+                }
+        </script>
+</head>
+
+<body>
+        <nav class="bg-zinc-500 p-5 pl-10 w-full flex justify-between">
+                <p class="text-whte font-bold text-3xl">nitPay</p>
+                <ul class="flex pt-2 font-semibold text-white text-xl">
+                        <a href="./index.html" class=" ">
+                                <li class="pr-10 hover:scale-110 duration-500">Home</li>
+                        </a>
+                        <a href="./start.html">
+                                <li class="hover:scale-110 duration-500">My Accounts</li>
+                        </a>
+                </ul>
+        </nav>
+
+        <main class="pt-20 pl-5">
+                <h1 class="text-4xl pt-5 pl-5 font-semibold">Welcome 👋</h1>
+
+                <h3 class="text-2xl font-semibold pl-5 pt-10">My Accounts</h3>
+
+                <div class=" sm:flex ml-5 sm:justify-between">
+                        <div
+                                class="account-section bg-gradient-to-l from-sky-300 to-indigo-400  w-[32rem] sm:w-[900px] mt-20 m-auto sm:ml-0  p-10 sm:p-20 rounded-3xl font-semibold">
+                                <div class="accName flex justify-between text-2xl">
+                                        <h4>Account Name:</h4>
+                                        <p class="act-name">xxxxxxxxxx</p>
+                                </div>
+
+                                <div class="accBal flex justify-between pt-10 text-2xl">
+                                        <h4>Account Balance:</h4>
+                                        <p>$ <span class="act-bal">00</span></p>
+                                </div>
+
+                                <div class="accBal flex justify-between pt-10 text-2xl">
+                                        <h4>Account Number:</h4>
+                                        <p>xxxxxxxxxx</p>
+                                </div>
+
+                                <div class="icons flex justify-between pt-20">
+                                        <img src="./Images/star.png" alt="">
+                                        <img src="./Images/wifi.png" alt="">
+                                </div>
+                        </div>
+
+                        <div
+                                class="transactions flex flex-row items-center justify-center sm:flex-col sm:mr-20 mt-20 sm:p-5">
+                                <div class="sm:pb-20">
+                                        <img src="./Images/down-arrow.png"
+                                                class="bg-gray-300 p-2 rounded-full cursor-pointer" id="deposit" alt="Deposit">
+                                        <p class="text-xl">Deposit</p>
+                                </div>
+
+                                <div class="ml-20 mr-20 sm:m-0">
+                                        <img src="./Images/atm.png" alt="atm" id="withdraw"
+                                                class="bg-gray-300 p-2 rounded-full cursor-pointer">
+                                        <p class="text-xl">Withdraw</p>
+                                </div>
+
+                                <div class="sm:pt-20">
+                                        <img src="./Images/transaction.png" alt="Transfer" id="transfer"
+                                                class="bg-gray-300 p-2 rounded-full cursor-pointer">
+                                        <p class="text-xl">Transfer</p>
+                                </div>
+                        </div>
+                </div>
+        </main>
+
+        <section class="mt-20 border rounded-3xl w-auto" id="deposit-section" style="display: none;">
+                <form class="flex flex-col pr-10 pl-10 p-10 pb-5">
+
+                        <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
+                        <input type="text" placeholder="John Doe Smith"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] italic"
+                                required>
+                        <p class="text-sm pb-14">Surname First</p>
+
+                        <label for="Account Balance" class="pb-7 text-2xl tracking-wider">Amount:</label>
+                        <input type="text" id="amount" placeholder="20,000"
+                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] mb-14 italic"
+                                required>
+
+
+                        <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" placeholder="xxxxxxxxxx"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] italic"
+                                required>
+
+                </form>
+
+                <div class="flex">
+                        <button id="deposit-btn"
+                                class="flex m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:rotate-[360deg] duration-700">DEPOSIT
+                        </button>
+
+                        <button
+                                class="flex close-btn m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:rotate-[360deg] duration-700">CLOSE
+                        </button>
+                </div>
+
+                
+        </section>
+
+        <section class="mt-20 border rounded-3xl w-auto" id="withdraw-section" style="display: none;">
+                <form class="flex flex-col pr-10 pl-10 p-10 pb-5">
+
+                        <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
+                        <input type="text" placeholder="John Doe Smith"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] italic"
+                                required>
+                        <p class="text-sm pb-14">Surname First</p>
+
+                        <label for="Account Balance" class="pb-7 text-2xl tracking-wider">Amount:</label>
+                        <input type="text" id="amount" placeholder="20,000"
+                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] mb-14 italic"
+                                required>
+
+
+                        <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" placeholder="xxxxxxxxxx"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] italic"
+                                required>
+
+                </form>
+
+                <div class="flex">
+                        <button id="withdraw-btn"
+                                class="flex m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:rotate-[360deg] duration-700">WITHDRAW
+                        </button>
+
+                        <button
+                                class="flex close-btn m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:rotate-[360deg] duration-700">CLOSE
+                        </button>
+                </div>
+
+                
+        </section>
+
+        <section class="mt-20 border rounded-3xl w-auto" id="transfer-section" style="display: none;">
+                <form class="flex flex-col pr-10 pl-10 p-10 pb-5">
+
+                        <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
+                        <input type="text" placeholder="John Doe Smith"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] italic"
+                                required>
+                        <p class="text-sm pb-14">Surname First</p>
+
+                        <label for="Account Balance" class="pb-7 text-2xl tracking-wider">Amount:</label>
+                        <input type="text" id="amount" placeholder="20,000"
+                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] mb-14 italic"
+                                required>
+
+
+                        <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" placeholder="xxxxxxxxxx"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-110 w-96 sm:w-[32rem] italic"
+                                required>
+
+                </form>
+
+                <div class="flex">
+                        <button id="transfer-btn"
+                                class="flex m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:rotate-[360deg] duration-700">TRANSFER
+                        </button>
+
+                        <button
+                                class="flex close-btn m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:rotate-[360deg] duration-700">CLOSE
+                        </button>
+                </div>
+
+                
+        </section>
+
+        <div class="footer">
+                <p class="text-xl">Made With ❤️ By Iseoluwa</p>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
