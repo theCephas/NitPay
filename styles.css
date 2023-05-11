@@ -47,11 +47,17 @@ section{
         top: 110%;
         left: 50%;
 }
-@media screen and (max-width: 700px){
+@media screen and (max-width: 640px){
         .footer{
-                position: absolute;
-                transform: translate(-50%, -50%);
-                top: 180%;
-                left: 50%;
+                position: relative;
+                transform: translate(0%, 0%);
+                top: 0;
+                left: 0;
+        }
+        section{
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: translate(0%, 0%);
         }
 }
