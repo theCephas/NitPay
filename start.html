@@ -28,7 +28,8 @@
 
                                         width: {
                                                 '900': '900px',
-                                                '300': '32rem'
+                                                '300': '32rem',
+                                                '200': '25rem'
                                         }
 
                                 }
@@ -38,9 +39,9 @@
 </head>
 
 <body>
-        <nav class="bg-zinc-500 p-5 pl-10 w-full flex justify-between">
-                <p class="text-whte font-bold text-3xl">nitPay</p>
-                <ul class="flex pt-2 font-semibold text-white text-xl">
+        <nav class="bg-zinc-500 p-2 w-full flex justify-between">
+                <p class="text-whte font-bold text-xl sm:text-3xl">nitPay</p>
+                <ul class="flex pt-2 font-semibold text-white text-sm sm:text-xl">
                         <a href="./index.html" class=" ">
                                 <li class="pr-10 hover:scale-110 duration-500">Home</li>
                         </a>
@@ -50,32 +51,32 @@
                 </ul>
         </nav>
 
-        <main class="pt-20 pl-5">
-                <h1 class="text-4xl pt-5 pl-5 font-semibold">Welcome 👋</h1>
+        <main class="pt-20 pl-2">
+                <h1 class="text-2xl sm:text-4xl pt-5  font-semibold">Welcome 👋</h1>
 
-                <h3 class="text-2xl font-semibold pl-5 pt-10">My Accounts</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold pt-10">My Accounts</h3>
 
-                <div class=" sm:flex ml-5 mr-10 sm:justify-between">
+                <div class=" sm:flex ml-2 mr-4 sm:justify-between">
                         <div
                                 class="account-section bg-gradient-to-l from-sky-300 to-indigo-400  w-auto sm:w-[900px] mt-20 m-auto sm:ml-0  p-10 sm:p-15 rounded-3xl font-semibold">
-                                <div class="accName flex justify-between text-2xl">
+                                <div class="accName flex justify-between text-xl sm:text-2xl">
                                         <h4>Account Name:</h4>
                                         <p class="act-name">xxxxxxxxxx</p>
                                 </div>
 
-                                <div class="accBal flex justify-between pt-10 text-2xl">
+                                <div class="accBal flex justify-between pt-10 text-xl sm:text-2xl">
                                         <h4>Account Balance:</h4>
                                         <p>$ <span class="act-bal">00</span></p>
                                 </div>
 
-                                <div class="accBal flex justify-between pt-10 text-2xl">
+                                <div class="accBal flex justify-between pt-10 text-xl sm:text-2xl">
                                         <h4>Account Number:</h4>
                                         <p>xxxxxxxxxx</p>
                                 </div>
 
                                
                                 <div class="pt-20">
-                                        <p class="text-xl">nitPay</p>
+                                        <p class="sm:text-xl text-sm">nitPay</p>
                                 </div>
                         </div>
 
@@ -84,42 +85,42 @@
                                 <div class="sm:pb-20 mr-12 sm:ml-12">
                                         <img src="./Images/down-arrow.png"
                                                 class="bg-gray-300 p-2 rounded-full cursor-pointer" id="deposit" alt="Deposit">
-                                        <p class="text-xl">Deposit</p>
+                                        <p class="text-sm sm:text-xl">Deposit</p>
                                 </div>
 
                                 <div class="sm:ml-12">
                                         <img src="./Images/atm.png" alt="atm" id="withdraw"
                                                 class="bg-gray-300 p-2 rounded-full cursor-pointer">
-                                        <p class="text-xl">Withdraw</p>
+                                        <p class="text-sm sm:text-xl">Withdraw</p>
                                 </div>
 
                                 <div class="sm:pt-20 ml-12 ">
                                         <img src="./Images/transaction.png" alt="Transfer" id="transfer"
                                                 class="bg-gray-300 p-2 rounded-full cursor-pointer">
-                                        <p class="text-xl">Transfer</p>
+                                        <p class="text-sm sm:text-xl">Transfer</p>
                                 </div>
                         </div>
                 </div>
         </main>
 
-        <section class="mt-20 border rounded-3xl w-auto" id="deposit-section" style="display: none;">
-                <form class="flex flex-col pr-10 pl-10 p-10 pb-5">
+        <section class="mt-20 border w-[25rem] rounded-3xl" id="deposit-section" style="display: none;">
+                <form class="flex flex-col p-10">
 
                         <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
                         <input type="text" placeholder="John Doe Smith"
-                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-96 sm:w-[32rem] italic"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto sm:w-[32rem] italic"
                                 required>
                         <p class="text-sm pb-14">Surname First</p>
 
                         <label for="Account Balance" class="pb-7 text-2xl tracking-wider">Amount:</label>
                         <input type="text" id="amount" placeholder="20,000"
-                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-96 sm:w-[32rem] mb-14 italic"
+                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto sm:w-[32rem] mb-14 italic"
                                 required>
 
 
                         <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
                         <input type="password" placeholder="xxxxxxxxxx"
-                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-96 sm:w-[32rem] italic"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto sm:w-[32rem] italic"
                                 required>
 
                 </form>
