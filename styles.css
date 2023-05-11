@@ -32,23 +32,23 @@ body{
         animation-fill-mode: both;
 }
 
-section{
+/* section{
         position: absolute;
         transform: translate(-50%, -50%);
         top: 60%;
         left: 50%;
-}
+} */
 .hide{
         display: none;
 }
-.footer{
+/* footer{
         position: absolute;
         transform: translate(-50%, -50%);
-        top: 110%;
+        top: 50%;
         left: 50%;
-}
+} */
 @media screen and (max-width: 640px){
-        .footer{
+        footer{
                 position: relative;
                 transform: translate(0%, 0%);
                 top: 0;
