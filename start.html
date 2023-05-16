@@ -52,7 +52,7 @@
         </nav>
 
         <main class="pt-20 pl-2">
-                <h1 class="text-2xl sm:text-4xl pt-5  font-semibold">Welcome 👋</h1>
+                <h1 class="text-2xl sm:text-4xl pt-5  font-semibold">Welcome! 👋</h1>
 
                 <h3 class="text-xl sm:text-2xl font-semibold pt-10">My Accounts</h3>
 
@@ -74,17 +74,17 @@
                                         <p id="act-num">xxxxxxxxxx</p>
                                 </div>
 
-                               
+
                                 <div class="pt-20">
                                         <p class="sm:text-xl text-sm">nitPay</p>
                                 </div>
                         </div>
 
-                        <div
-                                class="transactions flex flex-row justify-center sm:flex-col sm:mr-20 mt-10 sm:p-5">
+                        <div class="transactions flex flex-row justify-center sm:flex-col sm:mr-20 mt-10 sm:p-5">
                                 <div class="sm:pb-20 mr-12 sm:ml-12">
                                         <img src="./Images/down-arrow.png"
-                                                class="bg-gray-300 p-2 rounded-full cursor-pointer" id="deposit" alt="Deposit">
+                                                class="bg-gray-300 p-2 rounded-full cursor-pointer" id="deposit"
+                                                alt="Deposit">
                                         <p class="text-sm sm:text-xl">Deposit</p>
                                 </div>
 
@@ -103,28 +103,19 @@
                 </div>
         </main>
 
-        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="deposit-section" style="display: none;">
+        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="deposit-section"
+                style="display: none;">
                 <form class="flex flex-col p-10">
 
-                        <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
-                        <input type="text" placeholder="John Doe Smith"
-                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic" id="account-name"
-                                required>
-                        <p class="text-sm pb-14">Surname First</p>
-
-                        <label for="Account Number" class="pb-7 text-2xl">Account Number:</label>
-                        <input type="text" placeholder="1234567890"
-                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic mb-14" id="account-number"
-                                required>
-
-                        <label for="Amount" class="pb-7 text-2xl tracking-wider">Amount:</label>
-                        <input type="number" placeholder="20,000"
-                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto mb-14 italic" id="account-balance"
-                                required>
+                        <label for="account-balance" class="pb-7 text-2xl tracking-wider">Amount:</label>
+                        <input type="number" placeholder="20000"
+                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto mb-14 italic"
+                                id="account-balance" required>
 
 
-                        <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
-                        <input type="password" placeholder="xxxx"
+                        <label for="deposit-pin" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" id="deposit-pin" pattern="\d{4}" minlength="4" maxlength="4"
+                                placeholder="xxxx"
                                 class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
                                 required>
 
@@ -140,29 +131,22 @@
                         </button>
                 </div>
 
-                
+
         </section>
 
-        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="withdraw-section" style="display: none;">
+        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="withdraw-section"
+                style="display: none;">
                 <form class="flex flex-col p-10">
 
-                        <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
-                        <input type="text" placeholder="John Doe Smith" class="account-name border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
-                                required>
-                        <p class="text-sm pb-14">Surname First</p>
-
-                        <label for="Account Number" class="pb-7 text-2xl">Account Number:</label>
-                        <input type="text" placeholder="xxxxxxxxxx" class="account-number border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic mb-14"
-                                required>
-
-                        <label for="Amount" class="pb-7 text-2xl tracking-wider">Amount:</label>
-                        <input type="number" placeholder="20,000"
-                                class="amount border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto mb-14 italic"
+                        <label for="amount" class="pb-7 text-2xl tracking-wider">Amount:</label>
+                        <input type="number" placeholder="20000" id="amount"
+                                class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto mb-14 italic"
                                 required>
 
 
-                        <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
-                        <input type="password" placeholder="xxxx"
+                        <label for="withdraw-pin" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" pattern="\d{4}" minlength="4" maxlength="4" placeholder="xxxx"
+                                id="withdraw-pin"
                                 class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
                                 required>
 
@@ -178,26 +162,34 @@
                         </button>
                 </div>
 
-                
+
         </section>
 
-        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="transfer-section" style="display: none;">
+        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="transfer-section"
+                style="display: none;">
                 <form class="flex flex-col p-10">
 
-                        <label for="Account Name" class="pb-7 text-2xl">Account Name:</label>
-                        <input type="text" placeholder="John Doe Smith"
+                        <label for="recipient-name" class="pb-7 text-2xl">Reciever's Name:</label>
+                        <input type="text" pattern="\D+" placeholder="John Doe Smith" id="recipient-name"
                                 class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
                                 required>
                         <p class="text-sm pb-14">Surname First</p>
 
-                        <label for="Account Balance" class="pb-7 text-2xl tracking-wider">Amount:</label>
-                        <input type="text" id="amount" placeholder="20,000"
+                        <label for="recipient-accNum" class="pb-7 text-2xl">Reciever's Account Number:</label>
+                        <input type="number" max="9999999999" min="1000000000" placeholder="xxxxxxxxxx"
+                                id="recipient-accNum"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 mb-14 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
+                                required>
+
+                        <label for="reciever-money" class="pb-7 text-2xl tracking-wider">Amount:</label>
+                        <input type="number" id="reciever-money" placeholder="20000"
                                 class="border-b border-white border-opacity-50 py-2 px-3 pb-5 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto mb-14 italic"
                                 required>
 
 
-                        <label for="Account Pin" class="pb-7 text-2xl">Account Pin:</label>
-                        <input type="password" placeholder="xxxxxxxxxx"
+                        <label for="reciever-pin" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" pattern="\d{4}" minlength="4" maxlength="4" placeholder="xxxx"
+                                id="reciever-pin"
                                 class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
                                 required>
 
@@ -213,13 +205,28 @@
                         </button>
                 </div>
 
-                
+
         </section>
+
+        <div id="confirmation"
+                class="w-auto m-auto mt-20 sm:w-[32rem] flex flex-col justify-center rounded-xl bg-white" style="display: none;">
+                <div class="p-10 text-center flex justify-between m-auto pr-20 text-slate-700">
+                        <h4 class="sm:text-4xl text-xl  pr-5 font-bold">
+                                Success! </h4><img src="./Images/check.png" alt="Success Check" class="pl-5">
+                </div>
+                <div class="bg-slate-200 text-black rounded-xl p-10 sm:w-[32rem] w-auto text-sm sm:text-xl ">
+                        <p class="flex flex-row justify-between pb-10">Recipient's name: <span id="reci-name"></span></p>
+                        <p class="flex flex-row justify-between">Recipient's Account Number: <span
+                                        id="reci-accNum"></span></p>
+                        <p class="flex flex-row justify-between pt-10">Amount: $<span id="reci-money"></span></p>
+                                <button class="p-5 bg-cyan-400 m-auto flex justify-center items-center rounded-2xl cursor-pointer mt-5" id="done">Done</button>
+                </div>
+        </div>
 
         <footer class="mt-12 mb-10 text-center sm:text-xl text-sm">
                 <p>Made With ❤️ By Iseoluwa</p>
         </footer>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="script.js"></script>
 </body>

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-        <div class="index-page animate-fade-in delay-500">
+        <div class="index-page text-center animate-fade-in delay-500">
                 <div class="image1">
                         <img src="./Images/bitcoin.jpg" width="500px" alt="Planet">
                 </div>
@@ -29,12 +29,49 @@
                                 ✨<span class="text-blue-300">nitPay</span>: Innovative Digital Banking
                         </h1>
                 </div>
-                <a href="./start.html">
-                        <button
-                                class="bg-gradient-to-r from-sky-500 to-indigo-500 mt-20 p-4 pr-7 pl-7 hover:bg-gradient-to-l rounded-xl font-semibold tracking-wide transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-sm sm:text-xl">GET
-                                STARTED 🚀</button>
-                </a>
+
+                <button id="cre-btn"
+                        class="bg-gradient-to-r from-sky-500 to-indigo-500 mt-20 p-4 pr-7 pl-7 hover:bg-gradient-to-l text-center rounded-xl font-semibold tracking-wide transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-sm sm:text-xl">Create
+                        Account 🚀</button>
         </div>
+
+        <section class="m-auto mt-20 mb-20 border w-[22rem] sm:w-[32rem] rounded-3xl" id="create-section"
+                style="display: none;">
+                <form id="create-form" class="flex flex-col p-10">
+
+                        <label for="accNa" class="pb-7 text-2xl">Account Name:</label>
+                        <!-- <input type="text" placeholder="John Doe Smith" id="accNa"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
+                                required> -->
+                                <input type="text" id="accNa" pattern="\D+" placeholder="John Doe Smith" class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic" required>
+                        <p class="text-sm pb-14">Surname First</p>
+
+                        <label for="accNu" class="pb-7 text-2xl">Account Number:</label>
+                        <input type="number" max="9999999999" min="1000000000" placeholder="xxxxxxxxxx" id="accNu"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic mb-14"
+                                required>
+
+
+                        <label for="accPi" class="pb-7 text-2xl">Account Pin:</label>
+                        <input type="password" placeholder="xxxx" id="accPi" pattern="\d{4}" minlength="4" maxlength="4"
+                                class="border-b border-white border-opacity-50 pb-5 py-2 px-3 bg-transparent focus:outline-none focus:border-white transition ease-in-out duration-700 focus:-translate-y-1 focus:scale-105 w-auto italic"
+                                required>
+                                <p class="text-sm pb-14">A maximum of four numbers.</p>
+                                <div class="flex">
+                                        <button id="create-btn"
+                                                class="flex m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-sm sm:text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-700">CREATE
+                                        </button>
+                
+                                        <button
+                                        id="clo-btn"
+                                                class="flex m-auto mt-4 p-5 pl-7 pr-7 bg-gradient-to-l from-zinc-400 to-stone-700 rounded-2xl mb-10 hover:bg-gradient-to-l  from-stone-700 to-zinc-300 rounded-xl text-sm sm:text-xl font-semibold tracking-widest transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-700">CLOSE
+                                        </button>
+                                </div>
+                </form>
+
+
+
+        </section>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="script.js"></script>
