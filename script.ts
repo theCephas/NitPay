@@ -51,8 +51,9 @@ createForm?.addEventListener('submit', (event) => {
 
 const accountNameInput = document.getElementById('act-name') as HTMLSpanElement;
 const accNumInput = document.getElementById('act-num') as HTMLSpanElement;
-
+const accPinInput = document.getElementById('act-pin') as HTMLInputElement;
 const storedAccountName = localStorage.getItem('accountNameInput');
+const storedPin = localStorage.getItem('accPinInput');
 if (storedAccountName !== null) {
   accountNameInput.textContent = storedAccountName?.replace(/\b\w/g, (c) => c.toUpperCase());
 } else {
@@ -75,19 +76,19 @@ depositBtn?.addEventListener('click', function () {
   const parsedAccountBalance = parseInt(accountBalance.value);
   const parsedExistingBalance = parseInt(existingBalance.textContent!);
 
-  const newBalance = parsedAccountBalance + parsedExistingBalance;
-
-  
-  if (!isNaN(parsedAccountBalance)) {
-    existingBalance.textContent = newBalance.toString();
-  }
   if (accountBalance.value.trim() === '' || depositPin.value.trim() === '') {
     alert('Please fill in all the fields.');
-    
-  }else {
-    
+
+  } else if (depositPin.value.trim() !== storedPin) {
+    alert('Please input the correct pin!');
+  } else if (!isNaN(parsedAccountBalance)) {
+    const newBalance = parsedAccountBalance + parsedExistingBalance;
+    existingBalance.textContent = newBalance.toString();
     $('#deposit-section, #withdraw-section, #transfer-section').css('display', 'none');
     $('main').css('display', 'block')
+  } else {
+    existingBalance.textContent = '';
+
   }
 });
 
@@ -100,23 +101,22 @@ withdrawBtn?.addEventListener('click', function () {
   const parsedwithdrawAmount = parseInt(amountOfWithdrawal.value);
   const parsedExistingBalance = parseInt(existingBalance.textContent!);
 
-  // const newBalance =parsedExistingBalance - parsedwithdrawAmount;
-
-  const afterWithdrawal: number = parsedExistingBalance - parsedwithdrawAmount;
-  
-  if (!isNaN(parsedwithdrawAmount)) {
-    existingBalance.textContent = afterWithdrawal.toString();
-  }
   if (amountOfWithdrawal.value.trim() === '' || withdrawPin.value.trim() === '') {
     alert('Please fill in all the fields.');
-    
-  }else if (afterWithdrawal < 0 ){
-    alert("Total amount is bigger than available balance!")
-    existingBalance.textContent = existingBalance.textContent;
-  }else {
-    
-    $('#deposit-section, #withdraw-section, #transfer-section').css('display', 'none');
-    $('main').css('display', 'block')
+
+  } else if (withdrawPin.value.trim() !== storedPin) {
+    alert('Please input the correct pin!');
+  } else if (!isNaN(parsedwithdrawAmount)) {
+    if (parsedwithdrawAmount > parsedExistingBalance) {
+      alert("Insufficient funds!")
+    } else {
+      const afterWithdrawal = parsedExistingBalance - parsedwithdrawAmount;
+      existingBalance.textContent = afterWithdrawal.toString();
+      $('#deposit-section, #withdraw-section, #transfer-section').css('display', 'none');
+      $('main').css('display', 'block')
+    }
+  } else {
+    existingBalance.textContent = '';
   }
 });
 
@@ -130,36 +130,37 @@ const recipientAccNum = document.getElementById("reci-accNum") as HTMLSpanElemen
 const recipientMoney = document.getElementById("reci-money") as HTMLSpanElement;
 const doneBtn = document.getElementById("done");
 
-transferBtn?.addEventListener('click', function(){
+transferBtn?.addEventListener('click', function () {
   const parsedTransferName = parseInt(transferName.value);
   const parsedTransferNumber = parseInt(transferNumber.value);
   const parsedTransferMoney = parseInt(transferMoney.value);
   const parsedExistingBalance = parseInt(existingBalance.textContent!);
-  const afterTransfer = parsedExistingBalance - parsedTransferMoney;
 
-  if (!isNaN(parsedTransferMoney)) {
-    existingBalance.textContent = afterTransfer.toString();
-  }
+
   if (transferName.value.trim() === '' || transferMoney.value.trim() === '' || transferNumber.value.trim() === '' || transferPin.value.trim() === '') {
     alert('Please fill in all the fields.');
-    
-  }else if (afterTransfer < 0){
-    alert("Insufficient Funds! Please input the right details or you'll be in debt.")
-    // existingBalance.textContent = existingBalance.textContent;
-  }else {
-    recipientName.textContent = transferName.value;
-    recipientAccNum.textContent = transferNumber.value;
-    recipientMoney.textContent = transferMoney.value;
-    $('#deposit-section, #withdraw-section, #transfer-section').css('display', 'none');
-    $('#confirmation').css('display', 'block');
 
-    doneBtn?.addEventListener('click', function(){
-      $('#confirmation').css('display', 'none');
-      $("main").css('display', 'block');
-    });
+  } else if (transferPin.value.trim() !== storedPin) {
+    alert('Please input the correct pin!');
+  }else if (!isNaN(parsedTransferMoney)) {
+    if (parsedTransferMoney > parsedExistingBalance) {
+      alert("Insufficient funds!")
+    } else {
+      const afterTransfer = parsedExistingBalance - parsedTransferMoney;
+      existingBalance.textContent = afterTransfer.toString();
+      recipientName.textContent = transferName.value;
+      recipientAccNum.textContent = transferNumber.value;
+      recipientMoney.textContent = "$ " + transferMoney.value;
+      $('#deposit-section, #withdraw-section, #transfer-section').css('display', 'none');
+      $('#confirmation').css('display', 'block');
+
+    }
+  } else {
+    existingBalance.textContent = '';
   }
 
-  
-
-  
+  doneBtn?.addEventListener('click', function () {
+    $('#confirmation').css('display', 'none');
+    $("main").css('display', 'block');
+  });
 });
