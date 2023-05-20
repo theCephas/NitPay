@@ -80,7 +80,9 @@ depositBtn?.addEventListener('click', function () {
     alert('Please fill in all the fields.');
 
   } else if (depositPin.value.trim() !== storedPin) {
-    alert('Please input the correct pin!');
+    alert('Please, input the correct pin!');
+  } else if (parsedAccountBalance < 0) {
+    alert("Invalid Input!");
   } else if (!isNaN(parsedAccountBalance)) {
     const newBalance = parsedAccountBalance + parsedExistingBalance;
     existingBalance.textContent = newBalance.toString();
@@ -105,7 +107,9 @@ withdrawBtn?.addEventListener('click', function () {
     alert('Please fill in all the fields.');
 
   } else if (withdrawPin.value.trim() !== storedPin) {
-    alert('Please input the correct pin!');
+    alert('Please, input the correct pin!');
+  } else if (parsedwithdrawAmount < 0) {
+    alert("Please, withdraw a correct amount.")
   } else if (!isNaN(parsedwithdrawAmount)) {
     if (parsedwithdrawAmount > parsedExistingBalance) {
       alert("Insufficient funds!")
@@ -141,8 +145,10 @@ transferBtn?.addEventListener('click', function () {
     alert('Please fill in all the fields.');
 
   } else if (transferPin.value.trim() !== storedPin) {
-    alert('Please input the correct pin!');
-  }else if (!isNaN(parsedTransferMoney)) {
+    alert('Please, input the correct pin!');
+  } else if (parsedTransferMoney < 0){
+    alert("Please, transfer a valid amount.")
+  } else if (!isNaN(parsedTransferMoney)) {
     if (parsedTransferMoney > parsedExistingBalance) {
       alert("Insufficient funds!")
     } else {

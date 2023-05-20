@@ -68,7 +68,10 @@ depositBtn === null || depositBtn === void 0 ? void 0 : depositBtn.addEventListe
         alert('Please fill in all the fields.');
     }
     else if (depositPin.value.trim() !== storedPin) {
-        alert('Please input the correct pin!');
+        alert('Please, input the correct pin!');
+    }
+    else if (parsedAccountBalance < 0) {
+        alert("Invalid Input!");
     }
     else if (!isNaN(parsedAccountBalance)) {
         var newBalance = parsedAccountBalance + parsedExistingBalance;
@@ -90,7 +93,10 @@ withdrawBtn === null || withdrawBtn === void 0 ? void 0 : withdrawBtn.addEventLi
         alert('Please fill in all the fields.');
     }
     else if (withdrawPin.value.trim() !== storedPin) {
-        alert('Please input the correct pin!');
+        alert('Please, input the correct pin!');
+    }
+    else if (parsedwithdrawAmount < 0) {
+        alert("Please, withdraw a correct amount.");
     }
     else if (!isNaN(parsedwithdrawAmount)) {
         if (parsedwithdrawAmount > parsedExistingBalance) {
@@ -125,7 +131,10 @@ transferBtn === null || transferBtn === void 0 ? void 0 : transferBtn.addEventLi
         alert('Please fill in all the fields.');
     }
     else if (transferPin.value.trim() !== storedPin) {
-        alert('Please input the correct pin!');
+        alert('Please, input the correct pin!');
+    }
+    else if (parsedTransferMoney < 0) {
+        alert("Please, transfer a valid amount.");
     }
     else if (!isNaN(parsedTransferMoney)) {
         if (parsedTransferMoney > parsedExistingBalance) {
